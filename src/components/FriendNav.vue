@@ -17,12 +17,17 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+nav{
+  position: sticky;
+  z-index: 20;
+  top: -5px;
+}
 .nav {
   box-sizing: border-box;
   margin: 0;
   display: flex;
   list-style: none;
-  background: rgb(224, 130, 130);
+  background:rgb(233, 131, 131);
   width: 100%;  
   padding: 10px;
   color: white;

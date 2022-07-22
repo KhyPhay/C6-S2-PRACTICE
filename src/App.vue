@@ -1,22 +1,34 @@
 <template>
 <div id="app">
   <FriendNav/>
-  <FriendForm/>
-  <FriendCard/>
+  <FriendForm @add-data="addFriend" />
+  <friend-card v-for="list of lists" :key="list" :list="list" :skills="skills"> </friend-card>
 </div>
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 </template>
 
 <script>
 import FriendNav from './components/FriendNav.vue'
 import FriendForm from './components/FriendForm.vue'
-import FriendCard from './components/FriendCard.vue'
 export default {
   name: 'App',
   components: {
     FriendNav,
     FriendForm,
-    FriendCard
+  },
+  data(){
+    return {
+      lists : [
+        {firstName:"khy", lastName:"Phat", comment:"HelloWorld", skills:["PYTHON", "JAVASCRIPT","JAVA", "NODE JS", "LARAVEL", "OOP"]},
+
+      ],
+    }
+  },
+
+  methods: {
+    addFriend(fname, lname, comment){
+      let friend = {firstName:fname, lastName:lname, comment:comment, skills:["PYTHON", "JAVASCRIPT","JAVA", "NODE JS", "LARAVEL", "OOP"]}
+      this.lists.push(friend);
+    }
   }
 }
 </script>
